@@ -8,14 +8,22 @@
 </div>
 
 
-<div class="cards">
-  <% @cocktails.each do |cocktail| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.shopify.com/s/files/1/0659/9787/products/zeta-bar-cosmopolitan_1024x1024_d90bb373-ff3b-49c8-a917-f85f0458938a_1024x1024.jpeg?v=1414617498)">
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
-    </div>
-  <% end %>
-</div>
 
+<div class="container">
+  <h1>Cocktails</h1>
+    <div class="cards">
+      <% @cocktails.each do |cocktail| %>
+        <% if cocktail.photo? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo %>')">
+            <%= link_to cocktail.name, cocktail_path(cocktail) %>
+            <% else %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://static.cuisineaz.com/400x320/i120324-cocktail-de-champagne.jpeg')">
+            <%= link_to cocktail.name, cocktail_path(cocktail) %>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+</div>
 
 <div class="footer">
   <div class="footer-links">
