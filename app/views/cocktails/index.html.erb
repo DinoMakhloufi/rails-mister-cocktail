@@ -1,8 +1,33 @@
-<h1>All cocktails</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://bonjourporto.fr/wp-content/uploads/2019/06/cocktail.jpg);">
+  <div class="container">
+    <h1><strong>Super Cocktails</strong></h1>
+    <p>Enjoy your life with fun cocktails !</p>
+    <%= link_to 'Add a new cocktail', new_cocktail_path, class:"btn btn-flat"  %>
+    <!-- <a class="btn btn-flat" href="#">Apply now</a> -->
+  </div>
+</div>
 
-<p><% @cocktails.each do |cocktail| %></p>
-<p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-<p><% end %></p>
 
-<%= link_to 'Add a new cocktail', new_cocktail_path %>
+<div class="cards">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.shopify.com/s/files/1/0659/9787/products/zeta-bar-cosmopolitan_1024x1024_d90bb373-ff3b-49c8-a917-f85f0458938a_1024x1024.jpeg?v=1414617498)">
+      <%= link_to cocktail.name, cocktail_path(cocktail) %>
+    </div>
+  <% end %>
+</div>
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> pour les alcoolos
+  </div>
+</div>
+
+
+
 
