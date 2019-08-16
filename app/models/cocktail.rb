@@ -3,4 +3,5 @@ class Cocktail < ApplicationRecord
   has_many :ingredients, through: :doses
 
   validates :name, allow_blank: false, uniqueness: true, presence: true
+  mount_uploader :photo, PhotoUploader
 end
